@@ -56,7 +56,7 @@
 
 <Sysmon schemaversion="4.83">
 	<!--SYSMON META CONFIG-->
-	<HashAlgorithms>md5,sha256,IMPHASH</HashAlgorithms> <!-- Both MD5 and SHA256 are the industry-standard algorithms. Remove IMPHASH if you do not use DLL import fingerprinting. -->
+	<HashAlgorithms>md5,sha256</HashAlgorithms> <!-- Both MD5 and SHA256 are the industry-standard algorithms. Remove IMPHASH if you do not use DLL import fingerprinting. -->
 	<CheckRevocation/> <!-- Check loaded drivers, log if their code-signing certificate has been revoked, in case malware stole one to sign a kernel driver -->
 
 	<!-- <ImageLoad/> --> <!-- Would manually force-on ImageLoad monitoring, even without configuration below. Included only documentation. -->
@@ -1056,7 +1056,7 @@
 			<!--NOTE: Using exclude with no rules means everything will be logged-->
 		</WmiEvent>
 	</RuleGroup>
-
+	<!--Commenting out DNS until we have ad blockers
 	<!--SYSMON EVENT ID 22 : DNS QUERY [DnsQuery]-->
 		<!--EVENT 22: "Dns query"-->
 
@@ -1316,6 +1316,7 @@
 			<Image condition="is">C:\Program Files (x86)\PRTG Network Monitor\PRTG Probe.exe</Image>
 		</DnsQuery>
 	</RuleGroup>
+	-->
 
 	<!--SYSMON EVENT ID 23 : FILE DELETE [FileDelete]-->
 		<!--EVENT 23: "File Delete"-->
